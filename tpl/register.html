@@ -1,0 +1,42 @@
+<div class="register">
+    <h1 class="text-center">Register</h1>
+    <form name="myForm" class="register_form" novalidate>
+
+        <!--用户名-->
+        <label for="uname">Name</label>
+        <input ng-model="uname" name="uname" ng-focus="focus()" ng-blur="blur()" required ng-pattern="/^[a-zA-Z0-9]{6,15}$/" id="uname" type="text" placeholder="Name">
+        <span class="tips" ng-show="myForm.uname.$error.required">*必填项</span>
+        <span class="tips" ng-show="myForm.uname.$error.pattern">用户名由6~15为数字或字母组成</span>
+        <span class="tips tips_ok" ng-show="uname_ok">用户名可以使用</span>
+        <span class="tips tips_err" ng-show="uname_err">用户名已被注册</span>
+
+        <!--密码1-->
+        <label for="password">Password</label>
+        <input ng-model="upwd" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,15}$/" name="upwd" required id="password" type="password" placeholder="password">
+        <span class="tips" ng-show="myForm.upwd.$error.required">*必填项</span>
+        <span class="tips" ng-show="myForm.upwd.$error.pattern">密码由6~15为数字和字母组成</span>
+
+        <!--密码2-->
+        <label for="password2">Confirm Password</label>
+        <input ng-model="upwd2" ng-pattern="/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,15}$/" name="upwd2" required id="password2" type="password" placeholder="Confirm password">
+        <span class="tips" ng-show="myForm.upwd2.$error.required">*必填项</span>
+        <span ng-show="!myForm.upwd2.$error.required">
+             <span class="tips" ng-show="upwd2!=upwd">两次密码输入不一致！</span>
+        </span>
+
+        <!--邮箱-->
+        <label for="email">Email</label>
+        <input ng-model="email" name="email" ng-pattern="/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/" required id="email" type="email" placeholder="email">
+        <span class="tips" ng-show="myForm.email.$error.required">*必填项</span>
+        <span class="tips" ng-show="myForm.email.$error.pattern">邮箱格式不正确（邮箱名只允许字母、数字、中划线、下划线）</span>
+
+        <!--提交按钮-->
+        <button ng-disabled="myForm.uname.$invalid||myForm.upwd.$invalid||myForm.upwd2.$invalid||myForm.email.$invalid" ng-click="submit()" class="re_submit">Submit</button>
+    </form>
+    <div class="reg">
+        <img src="images/s1.jpg" alt="">
+        <div ng-click="jump('login')">
+            <span>Let's to Account</span>
+        </div>
+    </div>
+</div>

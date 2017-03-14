@@ -1,0 +1,79 @@
+<!-- 轮播图 -->
+<ion-slide-box auto-play="false" does-continue="true" slide-interval="5000">
+    <ion-slide>
+        <div class="box banner">
+            <img src="images/1.jpg" alt="">
+        </div>
+    </ion-slide>
+    <ion-slide>
+        <div class="box banner">
+            <img src="images/1.jpg" alt="">
+        </div>
+    </ion-slide>
+    <ion-slide on-slide-changed="slideHasChanged(index)">
+        <div class="box banner">
+            <img src="images/1.jpg" alt="">
+        </div>
+    </ion-slide>
+</ion-slide-box>
+
+<section>
+    <div class="new_released">
+        <h1>NEW RELEASED</h1>
+        <ul>
+            <li ng-repeat="obj in new_data">
+                <div>
+                    <div class="nr_h">
+                        <img class="responsive-sm" ng-src="{{obj.pic}}" alt="">
+                        <div class="nr_li_h"><span>{{obj.type}}</span></div>
+                    </div>
+                    <span>{{obj.pname}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="featured_collections">
+        <h1>FEATURED COLLECTIONS</h1>
+        <div class="fc_main">
+            <div class="fc_main_left">
+                <div class="wh100">
+                    <img ng-src="{{t1.pic}}" alt="">
+                    <div class="fc_li_h"><span>{{t1.type}}</span></div>
+                </div>
+            </div>
+            <div class="fc_main_right">
+                <div class="fc_main_right_top">
+                    <div class="wh100">
+                        <img ng-src="{{t2.pic}}" alt="">
+                        <div class="fc_li_h"><span class="fc_h2">{{t2.type}}</span></div>
+                    </div>
+                </div>
+                <div class="fc_main_right_bottom">
+                    <div class="fc_main_right_bottom_lf">
+                        <div class="wh100">
+                            <img ng-src="{{t3.pic}}" alt="">
+                            <div class="fc_li_h"><span>{{t3.type}}</span></div>
+                        </div>
+                    </div>
+                    <div class="fc_main_right_bottom_rt">
+                        <div class="wh100">
+                            <img ng-src="{{t4.pic}}" alt="">
+                            <div class="fc_li_h"><span>{{t4.type}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="link">
+    <ul>
+        <li><img src="images/lo.png" alt=""></li>
+        <li><img src="images/lo1.png" alt=""></li>
+        <li><img src="images/lo2.png" alt=""></li>
+        <li><img src="images/lo3.png" alt=""></li>
+        <li><img src="images/lo4.png" alt=""></li>
+        <li><img src="images/lo5.png" alt=""></li>
+    </ul>
+</div>

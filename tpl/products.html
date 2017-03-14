@@ -1,0 +1,194 @@
+<div class="product">
+    <div class="product_left">
+        <div class="Categories">
+            <div class="cate_h3">
+                <h3>Categories</h3>
+            </div>
+            <div class="cate_box">
+                <ul class="cate_ul">
+                    <li>
+                        <a class="li_click">Men</a>
+                        <ul class="sm_ul">
+                            <li>123</li>
+                            <li>123</li>
+                            <li>123</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="li_click">Women</a>
+                        <ul class="sm_ul">
+                            <li>123</li>
+                            <li>123</li>
+                            <li>123</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="li_click">Kids</a>
+                        <ul class="sm_ul">
+                            <li>123</li>
+                            <li>123</li>
+                            <li>123</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="li_click">Accesories</a>
+                        <ul class="sm_ul">
+                            <li>123</li>
+                            <li>123</li>
+                            <li>123</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="li_click">shoes</a>
+                        <ul class="sm_ul">
+                            <li>123</li>
+                            <li>123</li>
+                            <li>123</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sm_product">
+            <img src="images/product1.jpg" alt="">
+            <div class="sm_product_tips">
+                <span>Lorem Ipsum</span>
+                <button>SHOP NOW</button>
+            </div>
+        </div>
+        <div class="tags">
+            <div class="tags_h3">
+                <h3>Tags</h3>
+            </div>
+            <div class="tags_box">
+                <ul class="tags_ul">
+                    <li>
+                        <button>design</button>
+                    </li>
+                    <li>
+                        <button>fashion</button>
+                    </li>
+                    <li>
+                        <button>lorem</button>
+                    </li>
+                    <li>
+                        <button>dress</button>
+                    </li>
+                    <li>
+                        <button>fashion</button>
+                    </li>
+                    <li>
+                        <button>dress</button>
+                    </li>
+                    <li>
+                        <button>design</button>
+                    </li>
+                    <li>
+                        <button>lorem</button>
+                    </li>
+                    <li>
+                        <button>fashion</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="Best_Sellers">
+            <div class="BS_h3">
+                <h3>Best Sellers</h3>
+            </div>
+            <div class="BS_box">
+                <ul class="BS_box_ul">
+                    <li>
+                        <div class="li_left">
+                            <img src="images/p1.jpg" alt="">
+                        </div>
+                        <div class="li_right">
+                            <span>
+                                Lorem ipsum dolor sitamet consectetuer
+                            </span>
+                            <h2>$40.00</h2>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="li_left">
+                            <img src="images/p2.jpg" alt="">
+                        </div>
+                        <div class="li_right">
+                            <span>
+                                Lorem ipsum dolor sitamet consectetuer
+                            </span>
+                            <h2>$40.00</h2>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="discount">
+            <img src="images/pro.jpg" alt="">
+            <div class="discount_tips">
+                <h2 class="text-center">DISCOUNT</h2>
+                <h3 class="text-center">Up to</h3>
+                <h1 class="text-center">60%</h1>
+            </div>
+        </div>
+    </div>
+    <div class="product_right">
+        <div class="product_box">
+            <!--产品列表-->
+            <ul class="pro_box_ul">
+                <li ng-repeat="obj in pddate">
+                    <div class="pro_box_ul_li_img">
+                        <img ng-src="{{obj.pic}}" alt="">
+                        <div ng-click="jump('single',{sex:'{{obj.sex}}',pid:'{{obj.pid}}',type:'{{obj.type}}'})" class="text-center">
+                            <button ng-click="jump('single')" class="buyBtn">Buy New</button>
+                        </div>
+                    </div>
+                    <div class="li_tips text-center">
+                        <span>{{obj.pname}}</span>
+                    </div>
+                    <div class="li_button">
+                        <button ng-click="jump('home')"><i class="text-center fa-shopping-cart"></i>${{obj.price}}</button>
+                    </div>
+                </li>
+            </ul>
+            <!--分页器-->
+            <div class="pagination_box text-center">
+                <ul class="pagination_ul pagi1">
+                    <li><button ng-click="PagiSelect_lf()" class="pagi_left text-center fa-chevron-left"></button></li>
+                    <li>
+                        <ul class="pagination_ul pagi2">
+
+                        </ul>
+                    </li>
+                    <li><button ng-click="PagiSelect_rt()" class="pagi_right text-center fa-chevron-right"></button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+        $('.cate_ul').on('click','.li_click',function (e) {
+            var target = e.target;
+            console.log(target);
+            if($(target).siblings('ul').css('display')==='block'){
+                $(target).siblings('ul').slideUp(500);
+                return;
+            }
+            $(target).parent().parent().find('.sm_ul').slideUp(500);
+            $(target).siblings().slideDown(500);
+        });
+
+        $('.pro_box_ul').on('mouseenter','li>.pro_box_ul_li_img',function () {
+            $(this).css({cursor:'pointer'});
+            $(this).find('.buyBtn').fadeIn(500);
+            $(this).parent().css({boxShadow:'0 0 5px #ef5f21'});
+        });
+        $('.pro_box_ul').on('mouseleave','li>.pro_box_ul_li_img',function () {
+            $(this).find('.buyBtn').fadeOut(500);
+            $(this).parent().css({boxShadow:'0 0 0 transparent'});
+        });
+
+
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="shop">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="IE-edge">
+    <title>shop</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ionic.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/ionic.bundle.js"></script>
+</head>
+<body ng-controller="parentCtrl">
+<div id="header">
+    <div class="header">
+        <div class="top">
+            <div class="top_main">
+                <div class="top_main_left">
+                    <input type="text" placeholder="Search" class="search">
+                    <i class="ion-search"></i>
+                </div>
+                <div class="top_main_right">
+                    <ul>
+                        <li class="car_sm" ng-click="jump('checkout')" id="car">
+                            <i class="fa-shopping-cart"></i>
+                            <!--显示购物车有多少件商品-->
+                            <div ng-model="carTips" class="cartips">
+                                <span ng-model="carNumber">{{carNumber.total}}</span>
+                            </div>
+                        </li>
+                        <li ng-click="jump('register')" id="register">Register</li>
+                        <li id="login">
+                            <!--Login-before-->
+                            <div ng-click="jump('login')" class="login_before">
+                                Login
+                            </div>
+                            <!--Login-after-->
+                            <div class="login_after">
+                                <img src="images/co.png" alt="">
+                                <!--弹出框-->
+                                <div class="login_after_box">
+                                    <ul>
+                                        <li ng-click="jump('userOrder')">个人中心</li>
+                                        <li ng-click="logout()">退出</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="bottom_main">
+                <div class="logo">
+                    <a href="#">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <ul class="menu_right">
+                    <li ng-click="jump('home')" id="home">Home</li>
+                    <li id="men">Men
+                        <div class="men_menu">
+                            <ul>
+                                <li ng-click="jump('products',{sex:'men',type:'ssyr',initPage:1})">时尚羽绒</li>
+                                <li ng-click="jump('products',{sex:'men',type:'xsjk',initPage:1})">修身夹克</li>
+                                <li ng-click="jump('products',{sex:'men',type:'nzk',initPage:1})">牛仔裤</li>
+                                <li ng-click="jump('products',{sex:'men',type:'xxk',initPage:1})">休闲裤</li>
+                                <li ng-click="jump('products',{sex:'men',type:'xk',initPage:1})">西裤</li>
+                                <li ng-click="jump('products',{sex:'men',type:'jpcs',initPage:1})">精品衬衫</li>
+                                <li ng-click="jump('products',{sex:'men',type:'mndy',initPage:1})">毛呢大衣</li>
+                                <li ng-click="jump('products',{sex:'men',type:'clwy',initPage:1})">潮流卫衣</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="women">Women
+                        <div class="women_menu">
+                            <ul>
+                                <li ng-click="jump('products',{sex:'women',type:'ssyr',initPage:1})">时尚羽绒</li>
+                                <li ng-click="jump('products',{sex:'women',type:'qbyr',initPage:1})">轻薄羽绒</li>
+                                <li ng-click="jump('products',{sex:'women',type:'zzq',initPage:1})">针织裙</li>
+                                <li ng-click="jump('products',{sex:'women',type:'mndy',initPage:1})">毛呢大衣</li>
+                                <li ng-click="jump('products',{sex:'women',type:'wnmf',initPage:1})">温暖棉服</li>
+                                <li ng-click="jump('products',{sex:'women',type:'zzs',initPage:1})">针织衫</li>
+                                <li ng-click="jump('products',{sex:'women',type:'jrwy',initPage:1})">加绒卫衣</li>
+                                <li ng-click="jump('products',{sex:'women',type:'nzk',initPage:1})">牛仔裤</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li ng-click="jump('blog')" id="blog">Blog</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="section" ui-view></div>
+<div id="footer">
+    <div class="footer">
+        <div class="footer_top">
+            <div class="footer_top_container">
+                <div class="footer_top_menu">
+                    <div class="one">
+                        <h4>MORE INFO</h4>
+                        <ul>
+                            <li>How to order</li>
+                            <li>FAQ</li>
+                            <li>Location</li>
+                            <li>Shopping</li>
+                            <li>Membershop</li>
+                        </ul>
+                    </div>
+                    <div class="two">
+                        <h4>CONTACT US</h4>
+                        <p>Contrary to popular belief</p>
+                        <p>The standard chunk</p>
+                        <p>office: +12 34 996 0792</p>
+                        <ul>
+                            <li><a class="fa-facebook"></a></li>
+                            <li><a class="fa-twitter"></a></li>
+                            <li><a class="fa-rss"></a></li>
+                            <li><a class="fa-linkedin"></a></li>
+                        </ul>
+                    </div>
+                    <div class="three">
+                        <H4>NEWSLETTER</H4>
+                        <p>Sign Up to get all news update and promo</p>
+                        <input type="text" class="inputk">
+                        <input type="button" value="Sign up" class="signup">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="footer_bottom_container">
+                <p>Copyright © 2015.Company name ALL rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

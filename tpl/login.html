@@ -1,0 +1,16 @@
+<div class="login">
+    <h1 class="text-center">Account</h1>
+    <form class="login_form">
+        <label for="uname">Name</label>
+        <input ng-model="uname" id="uname" type="text" placeholder="name">
+        <label for="password">Password</label>
+        <input ng-model="upwd" id="password" type="password" placeholder="password">
+        <button ng-click="login_submit()" class="ac_submit">Login</button>
+    </form>
+    <div class="reg">
+        <img src="images/s1.jpg" alt="">
+        <div ng-click="jump('register')">
+            <span>Create an account</span>
+        </div>
+    </div>
+</div>

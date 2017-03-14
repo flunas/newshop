@@ -1,0 +1,106 @@
+<div class="car">
+    <h3 class="text-left">My Shopping Bag (<i ng-model="listNumber">{{listNumber}}</i>)</h3>
+    <div class="car_box">
+        <ul class="car_box_ul">
+            <li ng-repeat="obj in pdData" ng-model="obj.sid">
+                <div class="li_box">
+                    <div class="li_box_img">
+                        <img ng-src="{{obj.pic}}" alt="">
+                    </div>
+                    <div class="li_box_detail">
+                        <div class="li_box_detail_left">
+                            <h4 class="detail_name">{{obj.pname}}</h4>
+                            <div class="car_select">
+                                <div class="color_select">
+                                    <span>Color</span>
+                                    <select ng-model="obj.acColor" name="color">
+                                        <option ng-repeat="tmp in obj.color" value="{{tmp}}">
+                                            {{tmp}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="size_select">
+                                    <span>Size</span>
+                                    <select ng-model="obj.acSize" name="size">
+                                        <option ng-repeat="tmp in obj.size" value="{{tmp}}">
+                                            {{tmp}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h3 class="mb20">Price: {{obj.price}}</h3>
+                            <div sl-number number="obj.number">
+                            </div>
+                        </div>
+                        <div class="li_box_detail_right text-right">
+                            <i remove sid="obj.sid"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="price_box">
+            <div class="price_box_main">
+                <button ng-click="goBuy()">Continue to basket</button>
+                <div class="price_detail">
+                    <h4>Price Details</h4>
+                    <ul>
+                        <li>
+                            <span>Total</span>
+                            <span ng-model="totalPrice">{{totalPrice.total}}</span>
+                            </li>
+                        <li>
+                            <span>Discount</span>
+                            <span>---</span>
+                            </li>
+                        <li>
+                            <span>Delivery Charges</span>
+                            <span>0.00</span>
+                            </li>
+                        <li>
+                            <hr>
+                            </li>
+                        <li>
+                            <h3>TOTAL</h3>
+                            <h3>{{totalPrice.total}}</h3>
+                        </li>
+                    </ul>
+                </div>
+                <button ng-click="placeOrder()">Place Order</button>
+
+                <div class="coupons">
+                    <h4>COUPONS</h4>
+                    <ul>
+                        <li>
+                            <span>
+                                <span>COUPONS</span>
+                            </span>
+                            <span>
+                                <button>Apply Coupons</button>
+                            </span>
+                        </li>
+                    </ul>
+                    <p>
+                        <a ng-click="jump('login')">Log In</a> to use accounts - linked coupons
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.car_box_ul').on('mouseenter','li',function(){
+        $(this).css({border:'1px solid red'});
+    });
+    $('.car_box_ul').on('mouseleave','li',function(){
+        $(this).css({border:'1px solid transparent'});
+    });
+    $('.car_box_ul').on('mouseenter','.fa-times',function(){
+        $(this).parent().parent().parent().parent().css({boxShadow:'0 0 5px red'});
+    });
+    $('.car_box_ul').on('mouseleave','.fa-times',function(){
+        $(this).parent().parent().parent().parent().css({boxShadow:'0 0 0 transparent'});
+    });
+
+</script>
